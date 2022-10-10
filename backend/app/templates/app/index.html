@@ -1,0 +1,42 @@
+{% load static %}
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <title>Home -Weather App</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="{% static 'css/cover.css' %}">
+</head>
+
+<body class="d-flex h-100 text-center text-bg-dark">
+
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+    </header>
+
+    <main class="px-3">
+      <h1>Upload weather data</h1>
+      <!-- <p class="lead">Upload weather data here. Run your queries here!!!</p> -->
+      <p class="lead">
+        <div>
+          <input class="form-control form-control-lg" id="formFileLg" type="file">
+        </div>
+      </p>
+    </main>
+
+    <footer class="mt-auto text-white-50">
+    </footer>
+  </div>
+
+
+
+</body>
+
+</html>
