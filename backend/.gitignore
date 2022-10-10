@@ -10,3 +10,6 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+
+app/uploads/
+db.sqlite3
