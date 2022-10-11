@@ -4,6 +4,7 @@ import './App.css';
 
 import HeaderComponent from './components/Header';
 import QueryComponent from './components/Query';
+import TableComponent from './components/Table';
 
 function App() {
   const [rows, setRows] = useState([]);
@@ -12,7 +13,7 @@ function App() {
     <div className="App">
       <HeaderComponent></HeaderComponent>
       <QueryComponent setRows={setRows}></QueryComponent>
-      <pre>{JSON.stringify(rows, undefined, 2)}</pre>
+      {(rows.length > 0) ? <TableComponent rows={rows} setRows={setRows}></TableComponent> : null}
     </div>
   );
 }

@@ -11,7 +11,7 @@ const axios = require('axios').default;
 
 export default function QueryComponent(props) {
     const [dateValue, setDateValue] = React.useState();
-    const [timeValue, setTimeValue] = React.useState("");
+    const [timeValue, setTimeValue] = React.useState();
 
     const handleCloseDate = () => {
         axios.post('/api/weekly', {
