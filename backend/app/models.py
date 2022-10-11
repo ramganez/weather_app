@@ -1,3 +1,4 @@
+from weakref import WeakMethod
 from django.db import models
 from traitlets import default
 
@@ -28,3 +29,4 @@ for field in COLUMN_NAMES:
         WeatherData.add_to_class(field, models.DateTimeField(null=True))
     else:
         WeatherData.add_to_class(field, models.CharField(max_length=100))
+WeatherData.add_to_class("data_file", models.ForeignKey(WeatherDataFile, on_delete=models.CASCADE))

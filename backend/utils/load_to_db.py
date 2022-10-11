@@ -27,9 +27,7 @@ def save_forecast_details(form_obj):
             form_obj.data_type = 2  # DAILY
 
         for forecast in forecast_details:
-            
-            WeatherData.objects.create(
-                **{k: v for k, v in forecast.items() if k in config.COLUMN_NAMES}
-            )
-
+            data = {k: v for k, v in forecast.items() if k in config.COLUMN_NAMES}
+            data['data_file'] = form_obj
+            WeatherData.objects.create(**data)
         fp.close()
