@@ -13,3 +13,4 @@ build/
 
 app/uploads/
 db.sqlite3
+app/migrations/
