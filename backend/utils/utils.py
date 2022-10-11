@@ -2,6 +2,8 @@
 
 import re
 
+from datetime import datetime
+
 
 def clean_date_time_local(data):
     """
@@ -13,3 +15,16 @@ def clean_date_time_local(data):
     return : "2022-10-10 02:00:00"
     """
     return re.sub("[^0-9-: ]", "", data)
+
+def separate_date_time(data_list):
+    """
+    separate date time before sending to frontend.
+
+    data: "data dict"
+
+    return : "data dict with date & time formatted"
+    """
+    for data in data_list:
+        data['date'] = datetime.strftime(data['date_time_local'], "%Y-%m-%d")
+        data['time'] = datetime.strftime(data['date_time_local'], "%H:%M")
+    return data_list
