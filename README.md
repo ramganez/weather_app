@@ -15,10 +15,12 @@ virtualenv w_env
 source w_env/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
+python manage.py runserver localhost:8000
 
 # Frontend setup (Node v16.17.0 and npm v8.15.0)
 cd frontend
 npm install
+npm start
 ```
 
 ### Upload weather data 
@@ -35,7 +37,7 @@ npm install
 * We can update the system data with upload a new data file
 * In the frontend system, we can specify the date & time to see the climate data. 
 
-### Overview 
+### Future Iterations
 * Currently system support specific fields like,
   - Temperature
   - Humidity
@@ -44,6 +46,5 @@ npm install
   we can include more fields, it is configurable.
   
 * Currently, data is displayed in table format in the future we can keep more data with a collapsible table.
-
 
 ![](./weather_system.png)
