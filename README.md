@@ -36,6 +36,7 @@ npm start
 * Backend web portal will allow uploading bulk climate data
 * We can update the system data with upload a new data file
 * In the frontend system, we can specify the date & time to see the climate data. 
+![](./weather_system.png)
 
 ### Future Iterations
 * Currently system support specific fields like,
@@ -46,5 +47,3 @@ npm start
   we can include more fields, it is configurable.
   
 * Currently, data is displayed in table format in the future we can keep more data with a collapsible table.
-
-![](./weather_system.png)
