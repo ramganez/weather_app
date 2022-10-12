@@ -52,6 +52,7 @@ export default function QueryComponent(props) {
                         onChange={(newValue) => {
                             setDateValue(newValue);
                         }}
+                        disableFuture={true}
                         onClose={handleCloseDate}
                     />
                     <MobileTimePicker

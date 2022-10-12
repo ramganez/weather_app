@@ -1,6 +1,5 @@
-from weakref import WeakMethod
 from django.db import models
-from traitlets import default
+from django.utils.timezone import make_aware
 
 from utils.utils import clean_date_time_local
 from config import DATA_TYPE, COLUMN_NAMES
@@ -23,8 +22,8 @@ class WeatherData(models.Model):
 
     def save(self, *args, **kwargs):
         # clean date time field before insert
-        self.date_time_local = self.date_time_local and  clean_date_time_local(self.date_time_local)
-        super(WeatherData, self).save(*args, **kwargs)    
+        self.date_time_local = self.date_time_local and make_aware(clean_date_time_local(self.date_time_local))
+        super(WeatherData, self).save(*args, **kwargs)
 
 for field in COLUMN_NAMES:
     if field in ['date_time_local', 'date']:

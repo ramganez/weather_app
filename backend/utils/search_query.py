@@ -1,7 +1,7 @@
-from unittest import result
 from django.db.models import Q
 from datetime import timedelta
 import datetime
+from django.utils.timezone import make_aware
 
 from app.models import WeatherData
 
@@ -19,7 +19,7 @@ def select_days(query):
     given_date = datetime.datetime.strptime(query, "%Y-%m-%d")  #'2022-10-07 15:00'
     day_7 = given_date + timedelta(days=6)
     results = WeatherData.objects.filter(
-        Q(date_time_local__lte=day_7) & Q(date_time_local__gte=given_date)
+        Q(date_time_local__lte=make_aware(day_7)) & Q(date_time_local__gte=make_aware(given_date))
     )
     return results
 
@@ -39,8 +39,8 @@ def select_days_with_time(query):
     )  #'2022-10-07 15:00'
     day_7 = given_date + timedelta(days=6)
     results = WeatherData.objects.filter(
-        Q(date_time_local__lte=day_7)
-        & Q(date_time_local__gte=given_date)
-        & Q(date_time_local__hour=given_date.hour)
+        Q(date_time_local__lte=make_aware(day_7))
+        & Q(date_time_local__gte=make_aware(given_date))
+        & Q(date_time_local__hour=make_aware(given_date).hour)
     )
     return results

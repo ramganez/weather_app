@@ -14,7 +14,7 @@ def clean_date_time_local(data):
 
     return : "2022-10-10 02:00:00"
     """
-    return re.sub("[^0-9-: ]", "", data)
+    return datetime.strptime(re.sub("[^0-9-: ]", "", data), "%Y-%m-%d %H:%M:%S ")
 
 def separate_date_time(data_list):
     """
