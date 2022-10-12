@@ -1,10 +1,10 @@
-# Weather Forecast
-A web application that allows to upload forecase data and query with details of Date and Time...
+# Weather App
+A web application that allows to upload climate data and query with details of Date and Time...
 The application is implemented with **Python** and 
 **Django** on the backend side and **ReactJS** on the front end
 side. **SQLite** is used as a database.
 
-# Setup and Configuration
+### Setup and Configuration
 ```
 git clone https://github.com/ramganez/weather_app.git
 cd weather_app
@@ -20,5 +20,30 @@ python manage.py migrate
 cd frontend
 npm install
 ```
+
+### Upload weather data 
+* Download "Climate Hourly" data from - https://winnipeg.weatherstats.ca/download.html
+* Upload csv file in localhost:8000 (backend portal)
+
+### Query weather data 
+* Open frontend system (localhost:3000)
+* Select Date to get weekly forecast with different time
+* Select Date & Time to get weekly forecast for chosen time
+
+### Overview 
+* Backend web portal will allow uploading bulk climate data
+* We can update the system data with upload a new data file
+* In the frontend system, we can specify the date & time to see the climate data. 
+
+### Overview 
+* Currently system support specific fields like,
+  - Temperature
+  - Humidity
+  - Wind Direction
+  - Wind Speed
+  we can include more fields, it is configurable.
+  
+* Currently, data is displayed in table format in the future we can keep more data with a collapsible table.
+
 
 ![](./weather_system.png)
