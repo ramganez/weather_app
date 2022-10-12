@@ -25,6 +25,6 @@ def separate_date_time(data_list):
     return : "data dict with date & time formatted"
     """
     for data in data_list:
-        data['date'] = datetime.strftime(data['date_time_local'], "%Y-%m-%d")
+        data['date'] = datetime.strftime(data['date_time_local'], "%a %d")
         data['time'] = datetime.strftime(data['date_time_local'], "%H:%M")
     return data_list

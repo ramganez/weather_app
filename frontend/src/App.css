@@ -43,5 +43,6 @@
 }
 
 .Query-Stack {
-  align-items: center
+  align-items: center;
+  margin: 35px
 }

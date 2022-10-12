@@ -10,16 +10,17 @@ import Stack from '@mui/material/Stack';
 const axios = require('axios').default;
 
 export default function QueryComponent(props) {
-    const [dateValue, setDateValue] = React.useState();
-    const [timeValue, setTimeValue] = React.useState();
+    const [dateValue, setDateValue] = React.useState("");
+    const [timeValue, setTimeValue] = React.useState("");
 
     const handleCloseDate = () => {
         axios.post('/api/weekly', {
-            query: dateValue.format('YYYY-MM-DD'),
-            withTime: false,
+            query: (timeValue === "") ? dateValue.format('YYYY-MM-DD') : dateValue.format('YYYY-MM-DD') + timeValue.format(" H:mm"),
+            withTime: (timeValue === "") ? false : true,
         })
             .then(function (response) {
                 props.setRows(response.data);
+                props.setDateSelected(true);
             })
             .catch(function (error) {
                 console.log(error);
@@ -42,7 +43,7 @@ export default function QueryComponent(props) {
     return (
         <>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <Stack className='Query-Stack' spacing={3}>
+                <Stack direction="row" className='Query-Stack' spacing={3}>
                     <MobileDatePicker
                         className="DateTime-Input"
                         label="Select Date"
@@ -62,6 +63,7 @@ export default function QueryComponent(props) {
                         }}
                         renderInput={(params) => <TextField {...params} />}
                         onClose={handleCloseTime}
+                        views={['hours']}
                     />
                 </Stack>
             </LocalizationProvider>

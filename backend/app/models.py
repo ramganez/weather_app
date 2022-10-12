@@ -18,6 +18,8 @@ class WeatherData(models.Model):
     Save all the WeatherData from uploaded files.
     Fields are set from config variable.
     """
+    class Meta:
+        ordering = ['date_time_local']
 
     def save(self, *args, **kwargs):
         # clean date time field before insert

@@ -32,10 +32,10 @@ export default function TableComponent(props) {
               <TableCell>
                 {row.time}
               </TableCell>
-              <TableCell>{row.temperature}</TableCell>
-              <TableCell>{row.relative_humidity}</TableCell>
+              <TableCell>{row.temperature} °</TableCell>
+              <TableCell>{row.relative_humidity} %</TableCell>
               <TableCell>{row.wind_dir}</TableCell>
-              <TableCell>{row.wind_speed}</TableCell>
+              <TableCell>{row.wind_speed} km/hr</TableCell>
             </TableRow>
           ))}
         </TableBody>
